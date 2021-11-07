@@ -1,0 +1,80 @@
+docker run --name mongodb -v /Users/max/docker/data/db:/data/db -p 27017:27017 -d mongo --auth
+
+docker exec -it mongodb mongo admin
+
+db.createUser({
+  user: "admin", 
+  pwd: "08081992xx", 
+  roles: [ { role: "root", db: "admin" } ]
+})
+
+show dbs
+use crudapp
+show collections
+db.cruds.find().pretty()
+-----------------------------------
+ng new chatapp-frontend
+npm install prettier -D
+sudo chown -R max chatapp
+
+npm install materialize-css --save 
+npm install jquery --save
+
+ng g c components/authTabs --skip-tests 
+ng g module modules/auth --flat
+ng g module modules/auth-routing --flat
+
+ng g c components/login --skip-tests --module=modules/auth/auth.module.ts
+ng g c components/signup --skip-tests --module=modules/auth/auth.module.ts
+ng g s services/auth --skip-tests --flat
+
+ng g c components/streams --skip-tests 
+ng g module modules/streams --flat
+ng g module modules/streams-routing --flat
+ng g s services/token --skip-tests --flat
+npm install ngx-cookie-service --save
+ng g guard services/auth --skip-tests --flat
+ng g c components/toolbar --skip-tests 
+ng g c components/side --skip-tests  --module=modules/streams.module.ts
+ng g c components/postForm --skip-tests  --module=modules/streams.module.ts
+ng g s services/post --skip-tests --flat
+ng g class services/token-interceptor --skip-tests --flat
+npm install moment --save
+npm i socket.io-client --save
+npm i lodash
+npm i --save-dev @types/lodash
+ng g c components/comments --skip-tests  --module=modules/streams.module.ts
+ng g c components/people --skip-tests  --module=modules/streams.module.ts
+ng g s services/users --skip-tests --flat
+ng g c components/following --skip-tests  --module=modules/streams.module.ts
+ng g c components/followers --skip-tests  --module=modules/streams.module.ts
+ng g c components/notifications --skip-tests  --module=modules/streams.module.ts
+ng g c components/topStreams --skip-tests  --module=modules/streams.module.ts
+ng g c components/chat --skip-tests  --module=modules/streams.module.ts
+ng g c components/message --skip-tests  --module=modules/streams.module.ts
+ng g s services/message --skip-tests --flat
+npm i ngx-auto-scroll --save
+npm i ng2-emoji-picker --save
+npm install --save rxjs-compat
+npm install ng2-file-upload --save
+ng g c components/images --skip-tests  --module=modules/streams.module.ts
+ng g c components/viewUser --skip-tests  --module=modules/streams.module.ts
+ng g c components/changePassword --skip-tests  --module=modules/streams.module.ts
+----------------------------------------------------------------------------------------------------
+mkdir chatapp-backend
+npm init
+npm install express mongoose --save
+npm install -g nodemon
+npm i cookie-parser morgan --save
+npm install joi --save
+npm i http-status-codes --save 
+npm i bcryptjs --save
+npm i jsonwebtoken --save
+npm i cors --save
+npm install --save socket.io
+npm i lodash --save
+npm install cloudinary
+npm i moment --save
+npm install request --save
+
+nodemon server
